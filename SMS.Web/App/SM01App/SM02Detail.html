@@ -1,0 +1,176 @@
+﻿<div ng-app='MainApp' ng-controller="SM02Ctrl">
+
+    <div ng-show="isload" style="text-align:center;">
+        <i class="fa fa-spinner fa-3x" aria-hidden="true"></i> Loading...
+    </div>
+    <table class="table table-bordered" id="SM02_Table">
+        <tr>
+            <th>
+                明細編號
+            </th>
+            <th>
+                處理日期
+            </th>
+            <th>
+                保管單位
+            </th>
+            <th>
+                保管人
+            </th>
+            <th>
+                使用單位
+            </th>
+            <th>
+                使用人
+            </th>
+            <th>
+                版本
+            </th>
+            <th>
+                取得費用
+            </th>
+            <th>
+                授權人數
+            </th>
+            <th>
+                動作
+            </th>
+        </tr>
+        <tr ng-repeat="SM02 in SM02s">
+            <td>{{SM02.detail_id}}</td>
+            <td>{{SM02.update_date| date:'yyyy-MM-dd'}}</td>
+            <td>{{SM02.keep_org}}</td>
+            <td>{{SM02.keep_man}}</td>
+            <td>{{SM02.use_org}}</td>
+            <td>{{SM02.use_man}}</td>
+            <td>{{SM02.soft_ver}}</td>
+            <td>{{SM02.soft_cost}}</td>
+            <td>{{SM02.auth_number}}</td>
+            <td>
+                <input type="button" class="btn-danger" value="刪除" ng-click="Delete(SM02)" />
+            </td>
+        </tr>
+    </table>
+    <ul uib-pagination boundary-links="true" total-items="totalRecords" items-per-page="pageSize" ng-model="currentPage" class="pagination-sm" previous-text="上一頁" next-text="下一頁" first-text="第一頁" last-text="最後一頁" ng-change="pageChanged()"></ul>
+    <pre>Current Page# : {{currentPage}}, Total Record#: {{totalRecords}}</pre>
+    <div style="color:red">
+        {{error}}
+    </div>
+</div>
+<div class="panel panel-default">
+    <div id="Div_detail_edition">
+        <table id="detail_form_editor">
+            <tr />
+            <tr>
+                <td>
+                    <label for="year">軟體編號</label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="text" class="form-control" id="soft_id" ng-model="SM02detail.soft_id" />
+                </td>
+                <td>
+                    <label for="year">明細編號</label>
+                </td>
+                <td>
+                    <input disabled ="disabled" type="text" class="form-control" id="detail_id" ng-model="SM02detail.detail_id" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="year">保管單位</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="keep_org" ng-model="SM02detail.keep_org" />
+                </td>
+                <td>
+                    <label for="year">保管人</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="keep_man" ng-model="SM02detail.keep_man" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="year">使用單位</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="use_org" ng-model="SM02detail.use_org" />
+                </td>
+                <td>
+                    <label for="year">使用人</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="use_man" ng-model="SM02detail.use_man" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="year">版本</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="soft_ver" ng-model="SM02detail.soft_ver" />
+                </td>
+                <td>
+                    <label for="year">授權人數</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="auth_number" ng-model="SM02detail.auth_number" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="year">費用</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="soft_cost" ng-model="SM02detail.soft_cost" />
+                </td>
+                <td>
+                    <label for="year">處理日期</label>
+                </td>
+                <td>
+                    <input readonly="true" class="form-control"
+                           id="update_date" ng-model="SM02detail.update_date" uib-datepicker-popup="{{format}}"
+                           is-open="popup1.opened" datepicker-options="dateOptions"
+                           ng-required="true" close-text="Close" alt-input-formats="altInputFormats"
+                           type="text">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"></button>
+</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="year">減損原因</label>
+                </td>
+                <td>
+                    <select class="form-control" id="decrease_reason" ng-model="SM02detail.decrease_reason">
+                        <option value="0">未毁損</option>
+                        <option value="1">毁損</option>
+                        <option value="2">不適用</option>
+                        <option value="3">已更新版本</option>
+                        <option value="4">合約到期</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="year">減損處理方法</label>
+                </td>
+                <td>
+                    <select class="form-control" id="decrease_handle" ng-model="SM02detail.decrease_handle">
+                        <option value="0">未毁損</option>
+                        <option value="1">依約辦理</option>
+                        <option value="2">轉贈</option>
+                        <option value="3">銷毁</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> <label for="year">備註</label> </td>
+                <td colspan="3">
+                    <textarea class="form-control" id="memo" ng-model="SM02detail.detail_memo"></textarea>
+                </td>
+            </tr>
+            </table>
+    </div>
+    <input type="button" class="btn btn-primary" value="新增差異" ng-click="DetailAdd()" />
+    <input type="button" class="btn btn-primary" value="目前差異編輯存檔" ng-click="DetailUpdate(SM02)" />
+    <input class="btn btn-primary" value="離開" ng-click="BacktoPreviousPage()" type="button" id="BtnCancel">
+</div>

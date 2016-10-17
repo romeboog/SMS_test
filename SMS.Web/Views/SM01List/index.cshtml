@@ -1,0 +1,78 @@
+﻿@model IList<SMS.Domain.ViewModels.SM01DirectoryViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3><i class="fa fa-table"></i> 報表資料</h3>
+<hr />
+<div style="text-align:right;">
+    <div style="text-align:right;">
+        <a class="btn btn-xs btn-success" href="/SM01List/Export?type=Excel">
+            <i class="fa fa-file-excel-o fa"></i> Excel
+        </a>
+        <a class="btn btn-xs btn-danger" href="/SM01List/Export?type=pdf">
+            <i class="fa fa-file-pdf-o fa"></i> PDF
+        </a>
+        <a class="btn btn-xs btn-info" href="/SM01List/Export?type=word">
+            <i class="fa fa-file-word-o fa"></i> Word
+        </a>
+    </div>
+</div>
+
+@*<table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>序號</td>
+                <td>軟體編號</td>
+                <td>軟體別</td>
+                <td>軟體名稱(含廠牌)</td>
+                <td>版本</td>
+                <td>版本序號</td>
+                <td>使用版別</td>
+                <td>使用者數</td>
+                <td>適用軟硬體環境</td>
+                <td>數量</td>
+                <td>軟體來源</td>
+                <td>來源單位</td>
+                <td>軟體存放軟體(數量)</td>
+                <td>相關文件手冊(名稱及數量)</td>
+                <td>價值</td>
+                <td>保管單位</td>
+                <td>保管人</td>
+                <td>使用單位</td>
+                <td>使用人</td>
+                <td>啟用日期</td>
+                <td>功能</td>
+                <td>備註</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.directory_sn</td>
+                    <td>@item.soft_id</td>
+                    <td>@item.soft_type_name</td>
+                    <td>@item.soft_name</td>
+                    <td>@item.soft_ver</td>
+                    <td>@item.soft_sn</td>
+                    <td>@item.soft_work_on_name</td>
+                    <td>@item.soft_max_user</td>
+                    <td>@item.soft_platform</td>
+                    <td>@item.soft_number</td>
+                    <td>@item.soft_from_name</td>
+                    <td>@item.soft_from_unit</td>
+                    <td>@item.soft_keeper</td>
+                    <td>@item.soft_doc</td>
+                    <td>@item.soft_cost</td>
+                    <td>@item.keep_org</td>
+                    <td>@item.keep_man</td>
+                    <td>@item.use_org</td>
+                    <td>@item.use_man</td>
+                    <td>@item.install_date</td>
+                    <td>@item.soft_for</td>
+                    <td>@item.memo</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

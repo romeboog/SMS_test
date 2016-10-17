@@ -1,0 +1,135 @@
+﻿
+    <div ng-controller="BD03Ctrl">
+        <br/>
+           <br/>
+            <fieldset style=" margin-bottom:50px; ">
+                <legend >
+                    <span id="lb_search_title" style="font-family:標楷體;font-size:Medium;font-weight:bold;">查  詢  選  項</span><img src="../../Content/img/view.png" />
+                </legend>
+                <table>
+                    <tr>
+                        <td style="width:5.5%;text-align:center;">
+                            <label>機關：</label>
+                        </td>
+                        <td style="width:17.5%;">
+                            <select class="form-control" id="Select_Org" name="Select_org" ng-model="select_org" ng-options="orgN.org_id as orgN.org_name  for orgN in user_orgs" ng-change="change(select_org)">
+                                <option value="">--不分機關--</option>
+                            </select>
+                        </td>
+                        <td style="width:5.5%;text-align:center;">
+                            <label>部門：</label>
+                        </td>
+                        <td style="width:17.5%;">
+
+                            <select class="form-control" id="Select_Dept" name="Select_dept" ng-model="select_dept" ng-options="dept.dept_id as dept.dept_name for dept in user_depts">
+                                <option value="">--不分部門--</option>
+                            </select>
+                        </td>
+                        <td style="width:5.5%;text-align:center;">
+
+                            <label for="Select_Id">編號：</label>
+                        </td>
+                        <td style="width:17.5%;">
+                            <input type="text" class="form-control" id="Select_Id" name="Select_id" maxlength="15" ng-model="select_user_id" ng-trim="true">
+                        </td>
+                        <td style="width:5.5%;text-align:center;">
+                            <label for="Select_Name">姓名：</label>
+                        </td>
+                        <td style="width:17.5%;">
+                            <input type="text" class="form-control" id="Select_Name" name="Select_name" maxlength="12" ng-model="select_name" ng-trim="true">
+                        </td>
+                        <td style="width:8%;">
+                            <a class="btn btn-success" href="#" style="margin-left:10px;" ng-click="Search()">
+                                查詢
+                            </a>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </fieldset>
+                <p>
+                    <ul class="nav nav-pills">
+                        <li class="icon-user active"><a href="/BD03/Add"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>新增</a></li>
+                    </ul>
+                </p>
+
+                <div ng-show="isload" style="text-align:center;">
+                    <i class="fa fa-spinner fa-3x" aria-hidden="true"></i> Loading...
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="text-align:center" width="60px">
+                            機關
+                        </th>
+                        <th style="text-align:center" width="60px">
+                            部門
+                        </th>
+                        <th width="100">
+                            編號
+                        </th>
+                        <th width="70">
+                            姓名
+                        </th>
+                        <th>
+                            電話
+                        </th>
+                        <th>
+                            e-mail
+                        </th>
+                        <th width="200">
+
+                        </th>
+                    </tr>
+                    <tr ng-repeat="BD03 in BD03s">
+                        <td style="text-align:center" width="60px">{{BD03.user_org}}</td>
+                        <td style="text-align:center" width="60px">{{BD03.user_dept}}</td>
+                        <td width="100px">{{BD03.user_id}}</td>
+                        <td width="70px">{{BD03.user_name}}</td>
+                        <td>{{BD03.user_tel}}</td>
+                        <td>{{BD03.user_mail}}</td>
+                        <td align="center" width="200px">
+
+                            <a class="btn btn-success" href="#" ng-click="Update(BD03.user_org,BD03.user_dept,BD03.user_id)">
+                                <i class="fa fa-edit fa-lg"></i> 修改
+                            </a>
+                            <!--data-toggle="modal" data-target="#myModal" 觸發dialog-->
+                            <a id="del_confirm" class="btn btn-danger" href="#" data-toggle="modal" data-target="#myModal" ng-click="delete_confirm(BD03)">
+
+                                <i class="fa fa-trash-o fa-lg"></i> 刪除
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <ul uib-pagination boundary-links="true" total-items="totalRecords" items-per-page="pageSize" ng-model="currentPage" class="pagination-sm" previous-text="上一頁" next-text="下一頁" first-text="第一頁" last-text="最後一頁" ng-change="pageChanged()"></ul>
+                <!--<pre>Current Page# : {{currentPage}}, Total Record#: {{totalRecords}}</pre>-->
+                <div style="color:red">
+                    {{error}}
+                </div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-radius:10px;">
+                    <div class="modal-header" style="background-color: #5bc0de;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                        <!--<button type="button" class="close" style="color:#FFF;" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>-->
+                        <h4 class="modal-title" style="color:#FFF;" id="myModalLabel">
+                            使用者刪除
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        確定要刪除該使用者?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            取消
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-click="Delete()">
+                            確定
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+</div>
+   

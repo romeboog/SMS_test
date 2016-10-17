@@ -1,0 +1,48 @@
+﻿<div ng-app='MainApp' ng-controller="BD02Ctrl">
+
+    <div ng-show="isload" style="text-align:center;">
+        <i class="fa fa-spinner fa-3x" aria-hidden="true"></i> Loading...
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                機關編號
+            </th>
+            <th>
+                機關名稱
+            </th>
+            <!--<th>
+                年度
+            </th>-->
+            <th>
+                部門編號
+            </th>
+            <th>
+                部門名稱
+            </th>
+            <th>
+                部門備註
+            </th>
+            <th>
+                動作
+            </th>
+        </tr>
+        <tr ng-repeat="BD02 in BD02s">
+            <td>{{BD02.dept_org}}</td>
+            <td>{{BD02.org_name}}</td>
+            <!--<td>{{BD02.year}}</td>-->
+            <td>{{BD02.dept_id}}</td>
+            <td>{{BD02.dept_name}}</td>
+            <td>{{BD02.dept_memo}}</td>
+            <td>
+                <input type="button" class="btn-success" disabled="disabled"  value ="修改" ng-click="Update(BD02.dept_year,BD02.dept_org,BD02.dept_id)" />
+                <input type="button" class="btn-danger" disabled="disabled" value="刪除" ng-click="Delete(BD02)" />
+            </td>
+        </tr>
+    </table>
+    <ul uib-pagination boundary-links="true" total-items="totalRecords" items-per-page="pageSize" ng-model="currentPage" class="pagination-sm" previous-text="上一頁" next-text="下一頁" first-text="第一頁" last-text="最後一頁" ng-change="pageChanged()"></ul>
+    <pre>Current Page# : {{currentPage}}, Total Record#: {{totalRecords}}</pre>
+    <div style="color:red">
+        {{error}}
+    </div>
+</div>

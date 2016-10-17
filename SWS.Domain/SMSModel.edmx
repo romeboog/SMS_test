@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bd01_org">
+          <Key>
+            <PropertyRef Name="org_id" />
+          </Key>
+          <Property Name="org_id" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="org_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="org_address" Type="nchar" MaxLength="50" />
+          <Property Name="org_tel" Type="char" MaxLength="20" />
+          <Property Name="org_contact" Type="nchar" MaxLength="12" />
+          <Property Name="org_visible" Type="bit" Nullable="false" />
+          <Property Name="org_group" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="make_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bd02_dept">
+          <Key>
+            <PropertyRef Name="dept_year" />
+            <PropertyRef Name="dept_org" />
+            <PropertyRef Name="dept_id" />
+          </Key>
+          <Property Name="dept_year" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="dept_org" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="dept_id" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="dept_name" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="dept_memo" Type="nchar" MaxLength="50" />
+          <Property Name="make_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bd03_user">
+          <Key>
+            <PropertyRef Name="user_org" />
+            <PropertyRef Name="user_dept" />
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_org" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="user_dept" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="user_id" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="user_pwd" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="user_name" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="user_sex" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="user_mail" Type="char" MaxLength="60" />
+          <Property Name="user_tel" Type="char" MaxLength="20" />
+          <Property Name="auth_type" Type="int" Nullable="false" />
+          <Property Name="usable" Type="bit" Nullable="false" />
+          <Property Name="make_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+          <Property Name="maker_id" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="bd04_common_code">
+          <Key>
+            <PropertyRef Name="bcc_id" />
+            <PropertyRef Name="bcc_type" />
+          </Key>
+          <Property Name="bcc_id" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="bcc_id2" Type="int" Nullable="false" />
+          <Property Name="bcc_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="bcc_type" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="bcc_memo" Type="varchar" MaxLength="40" />
+          <Property Name="make_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sm01_soft_keep_main">
+          <Key>
+            <PropertyRef Name="year" />
+            <PropertyRef Name="org" />
+            <PropertyRef Name="dept" />
+            <PropertyRef Name="soft_id" />
+          </Key>
+          <Property Name="year" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="org" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="dept" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="soft_id" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="soft_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="soft_type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="soft_sn" Type="varchar" MaxLength="30" />
+          <Property Name="soft_for" Type="nvarchar" MaxLength="2000" />
+          <Property Name="soft_work_on" Type="char" MaxLength="1" />
+          <Property Name="soft_max_user" Type="int" />
+          <Property Name="soft_number" Type="int" />
+          <Property Name="soft_platform" Type="nvarchar" MaxLength="1000" />
+          <Property Name="soft_from" Type="char" MaxLength="1" />
+          <Property Name="soft_from_unit" Type="nvarchar" MaxLength="50" />
+          <Property Name="soft_keeper" Type="char" MaxLength="1" />
+          <Property Name="soft_doc" Type="nvarchar" MaxLength="100" />
+          <Property Name="soft_cost" Type="int" />
+          <Property Name="install_date" Type="datetime" />
+          <Property Name="install_place" Type="nvarchar" MaxLength="50" />
+          <Property Name="memo" Type="nvarchar" MaxLength="2000" />
+          <Property Name="make_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sm02_soft_keep_detail">
+          <Key>
+            <PropertyRef Name="year" />
+            <PropertyRef Name="org" />
+            <PropertyRef Name="dept" />
+            <PropertyRef Name="soft_id" />
+            <PropertyRef Name="detail_id" />
+          </Key>
+          <Property Name="year" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="org" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="dept" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="soft_id" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="detail_id" Type="int" Nullable="false" />
+          <Property Name="keep_org" Type="nvarchar" MaxLength="50" />
+          <Property Name="keep_man" Type="nchar" MaxLength="12" />
+          <Property Name="use_org" Type="nvarchar" MaxLength="50" />
+          <Property Name="use_man" Type="nchar" MaxLength="12" />
+          <Property Name="soft_ver" Type="char" MaxLength="15" />
+          <Property Name="soft_cost" Type="int" />
+          <Property Name="auth_number" Type="int" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="decrease_reason" Type="char" MaxLength="1" />
+          <Property Name="decrease_handle" Type="char" MaxLength="1" />
+          <Property Name="detail_memo" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityContainer Name="SMSModelStoreContainer">
+          <EntitySet Name="bd01_org" EntityType="Self.bd01_org" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bd02_dept" EntityType="Self.bd02_dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bd03_user" EntityType="Self.bd03_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bd04_common_code" EntityType="Self.bd04_common_code" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sm01_soft_keep_main" EntityType="Self.sm01_soft_keep_main" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sm02_soft_keep_detail" EntityType="Self.sm02_soft_keep_detail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bd01_org">
+          <Key>
+            <PropertyRef Name="org_id" />
+          </Key>
+          <Property Name="org_id" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="org_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="org_address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="org_tel" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="org_contact" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="org_visible" Type="Boolean" Nullable="false" />
+          <Property Name="org_group" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="make_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="bd02_dept">
+          <Key>
+            <PropertyRef Name="dept_year" />
+            <PropertyRef Name="dept_org" />
+            <PropertyRef Name="dept_id" />
+          </Key>
+          <Property Name="dept_year" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept_org" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept_id" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept_name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="dept_memo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="make_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="bd03_user">
+          <Key>
+            <PropertyRef Name="user_org" />
+            <PropertyRef Name="user_dept" />
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_org" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_dept" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_pwd" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="user_sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_mail" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="user_tel" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="auth_type" Type="Int32" Nullable="false" />
+          <Property Name="usable" Type="Boolean" Nullable="false" />
+          <Property Name="make_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="maker_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sm01_soft_keep_main">
+          <Key>
+            <PropertyRef Name="year" />
+            <PropertyRef Name="org" />
+            <PropertyRef Name="dept" />
+            <PropertyRef Name="soft_id" />
+          </Key>
+          <Property Name="year" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="org" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="soft_id" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="soft_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_id" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="soft_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="soft_sn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="soft_for" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="soft_work_on" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="soft_max_user" Type="Int32" />
+          <Property Name="soft_number" Type="Int32" />
+          <Property Name="soft_platform" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="soft_from" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="soft_from_unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soft_keeper" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="soft_doc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="install_date" Type="DateTime" Precision="3" />
+          <Property Name="install_place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="soft_cost" Type="Int32" />
+          <Property Name="make_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="sm02_soft_keep_detail">
+          <Key>
+            <PropertyRef Name="year" />
+            <PropertyRef Name="org" />
+            <PropertyRef Name="dept" />
+            <PropertyRef Name="soft_id" />
+            <PropertyRef Name="detail_id" />
+          </Key>
+          <Property Name="year" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="org" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="soft_id" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="detail_id" Type="Int32" Nullable="false" />
+          <Property Name="keep_org" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="keep_man" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="use_org" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="use_man" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="soft_ver" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="soft_cost" Type="Int32" />
+          <Property Name="auth_number" Type="Int32" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="decrease_reason" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="decrease_handle" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="detail_memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bd01_org" EntityType="Self.bd01_org" />
+          <EntitySet Name="bd02_dept" EntityType="Self.bd02_dept" />
+          <EntitySet Name="bd03_user" EntityType="Self.bd03_user" />
+          <EntitySet Name="sm01_soft_keep_main" EntityType="Self.sm01_soft_keep_main" />
+          <EntitySet Name="sm02_soft_keep_detail" EntityType="Self.sm02_soft_keep_detail" />
+          <FunctionImport Name="SM01_GetUsableDeptByYearOrg" ReturnType="Collection(SMSModel.SM01_GetUsableDeptByYearOrg_Result)">
+            <Parameter Name="year" Mode="In" Type="String" />
+            <Parameter Name="org" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SM01_GetUsableOrg" ReturnType="Collection(SMSModel.SM01_GetUsableOrg_Result)" />
+          <FunctionImport Name="SM01_GetUsableUserByYearOrgDept" ReturnType="Collection(SMSModel.SM01_GetUsableUserByYearOrgDept_Result)">
+            <Parameter Name="year" Mode="In" Type="String" />
+            <Parameter Name="org" Mode="In" Type="String" />
+            <Parameter Name="dept" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="bd04_common_code" EntityType="SMSModel.bd04_common_code" />
+        </EntityContainer>
+        <ComplexType Name="SM01_GetUsableDeptByYearOrg_Result">
+          <Property Type="String" Name="dept_id" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="dept_name" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="deptDispName" Nullable="false" MaxLength="26" />
+          <Property Type="String" Name="dept_year" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="dept_org" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="org_name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SM01_GetUsableOrg_Result">
+          <Property Type="String" Name="org_id" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="org_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="orgDispName" Nullable="false" MaxLength="56" />
+        </ComplexType>
+        <ComplexType Name="SM01_GetUsableUserByYearOrgDept_Result">
+          <Property Type="String" Name="user_id" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="user_name" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="userDispName" Nullable="false" MaxLength="28" />
+          <Property Type="String" Name="dept_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="dept_id" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="org_id" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="org_name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="auth_type" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="bd04_common_code">
+          <Key>
+            <PropertyRef Name="bcc_id" />
+            <PropertyRef Name="bcc_type" />
+          </Key>
+          <Property Name="bcc_id" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="bcc_id2" Type="Int32" Nullable="false" />
+          <Property Name="bcc_name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="bcc_type" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="bcc_memo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="make_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMSModelStoreContainer" CdmEntityContainer="SMSEntities">
+          <EntitySetMapping Name="bd01_org">
+            <EntityTypeMapping TypeName="SMSModel.bd01_org">
+              <MappingFragment StoreEntitySet="bd01_org">
+                <ScalarProperty Name="org_id" ColumnName="org_id" />
+                <ScalarProperty Name="org_name" ColumnName="org_name" />
+                <ScalarProperty Name="org_address" ColumnName="org_address" />
+                <ScalarProperty Name="org_tel" ColumnName="org_tel" />
+                <ScalarProperty Name="org_contact" ColumnName="org_contact" />
+                <ScalarProperty Name="org_visible" ColumnName="org_visible" />
+                <ScalarProperty Name="org_group" ColumnName="org_group" />
+                <ScalarProperty Name="make_date" ColumnName="make_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bd02_dept">
+            <EntityTypeMapping TypeName="SMSModel.bd02_dept">
+              <MappingFragment StoreEntitySet="bd02_dept">
+                <ScalarProperty Name="dept_year" ColumnName="dept_year" />
+                <ScalarProperty Name="dept_org" ColumnName="dept_org" />
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+                <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+                <ScalarProperty Name="dept_memo" ColumnName="dept_memo" />
+                <ScalarProperty Name="make_date" ColumnName="make_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bd03_user">
+            <EntityTypeMapping TypeName="SMSModel.bd03_user">
+              <MappingFragment StoreEntitySet="bd03_user">
+                <ScalarProperty Name="user_org" ColumnName="user_org" />
+                <ScalarProperty Name="user_dept" ColumnName="user_dept" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_sex" ColumnName="user_sex" />
+                <ScalarProperty Name="user_mail" ColumnName="user_mail" />
+                <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+                <ScalarProperty Name="auth_type" ColumnName="auth_type" />
+                <ScalarProperty Name="usable" ColumnName="usable" />
+                <ScalarProperty Name="make_date" ColumnName="make_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="maker_id" ColumnName="maker_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sm01_soft_keep_main">
+            <EntityTypeMapping TypeName="SMSModel.sm01_soft_keep_main">
+              <MappingFragment StoreEntitySet="sm01_soft_keep_main">
+                <ScalarProperty Name="make_date" ColumnName="make_date" />
+                <ScalarProperty Name="soft_cost" ColumnName="soft_cost" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="org" ColumnName="org" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="soft_id" ColumnName="soft_id" />
+                <ScalarProperty Name="soft_name" ColumnName="soft_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="soft_type" ColumnName="soft_type" />
+                <ScalarProperty Name="soft_sn" ColumnName="soft_sn" />
+                <ScalarProperty Name="soft_for" ColumnName="soft_for" />
+                <ScalarProperty Name="soft_work_on" ColumnName="soft_work_on" />
+                <ScalarProperty Name="soft_max_user" ColumnName="soft_max_user" />
+                <ScalarProperty Name="soft_number" ColumnName="soft_number" />
+                <ScalarProperty Name="soft_platform" ColumnName="soft_platform" />
+                <ScalarProperty Name="soft_from" ColumnName="soft_from" />
+                <ScalarProperty Name="soft_from_unit" ColumnName="soft_from_unit" />
+                <ScalarProperty Name="soft_keeper" ColumnName="soft_keeper" />
+                <ScalarProperty Name="soft_doc" ColumnName="soft_doc" />
+                <ScalarProperty Name="install_date" ColumnName="install_date" />
+                <ScalarProperty Name="install_place" ColumnName="install_place" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sm02_soft_keep_detail">
+            <EntityTypeMapping TypeName="SMSModel.sm02_soft_keep_detail">
+              <MappingFragment StoreEntitySet="sm02_soft_keep_detail">
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="org" ColumnName="org" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="soft_id" ColumnName="soft_id" />
+                <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+                <ScalarProperty Name="keep_org" ColumnName="keep_org" />
+                <ScalarProperty Name="keep_man" ColumnName="keep_man" />
+                <ScalarProperty Name="use_org" ColumnName="use_org" />
+                <ScalarProperty Name="use_man" ColumnName="use_man" />
+                <ScalarProperty Name="soft_ver" ColumnName="soft_ver" />
+                <ScalarProperty Name="soft_cost" ColumnName="soft_cost" />
+                <ScalarProperty Name="auth_number" ColumnName="auth_number" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="decrease_reason" ColumnName="decrease_reason" />
+                <ScalarProperty Name="decrease_handle" ColumnName="decrease_handle" />
+                <ScalarProperty Name="detail_memo" ColumnName="detail_memo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bd04_common_code">
+            <EntityTypeMapping TypeName="SMSModel.bd04_common_code">
+              <MappingFragment StoreEntitySet="bd04_common_code">
+                <ScalarProperty Name="make_date" ColumnName="make_date" />
+                <ScalarProperty Name="bcc_memo" ColumnName="bcc_memo" />
+                <ScalarProperty Name="bcc_type" ColumnName="bcc_type" />
+                <ScalarProperty Name="bcc_name" ColumnName="bcc_name" />
+                <ScalarProperty Name="bcc_id2" ColumnName="bcc_id2" />
+                <ScalarProperty Name="bcc_id" ColumnName="bcc_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

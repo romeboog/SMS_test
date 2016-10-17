@@ -1,0 +1,244 @@
+      <html>
+        <head>
+          <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+          <style>
+            .form_2td_label_width{ width : 185px; } 
+            .form_2td_content_width {width : 765px; } 
+            .form_1td_label_width { width : 185px; }
+            .form_1td_content_width { width : 280px;}
+          </style>
+        </head>
+        <body>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <table style="width: 950px; height: 658px;" id="main_form">
+                <tbody>
+                  <!--<input type="text" class="form-control" id="year" ng-model="year" />-->
+                  <tr>
+                    <td class="form_2td_label_width"> <label for="year">年度</label></td>
+                      <td class="form_2td_content_width">
+                          <select class="form-control" id="soft_type" ng-model="year">
+                              <option value="098">98</option>
+                              <option value="099">99</option>
+                              <option value="100">100</option>
+                              <option value="101">101</option>
+                              <option value="102">102</option>
+                              <option value="103">103</option>
+                              <option value="104">104</option>
+                              <option value="105">105</option>
+                              <option value="106">106</option>
+                              <option value="107">107</option>
+                              <option value="108">108</option>
+                              <option value="109">109</option>
+                          </select>
+                      </td>
+                      <td class="form_2td_label_width"> <label for="org">填表單位</label> </td>
+                      <td class ="form_2td_content_width">
+                          <!--<input type="text" class="form-control" id="org" ng-model="org" />-->
+                          <select name="org" id="org" ng-model="org" ng-change="orgChange(SM01.year,SM01.org);">
+                              <option ng-repeat="orgC in org_List" value="{{orgC.org_id}}">{{orgC.org_name}}</option>
+                          </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="form_2td_label_width">
+                          <label for="year">部門</label>
+                      </td>
+                      <td class="form_2td_content_width">
+                          <select name="org" id="dept" ng-model="dept" ng-change="deptChange(SM01.year, SM01.org, SM01.dept)">
+                              <option ng-repeat="deptC in dept_List" value="{{deptC.dept_id}}">{{deptC.dept_name}}</option>
+                          </select>
+                      </td>
+                      <td class="form_2td_label_width"> <label for="org">承辦人編號</label> </td>
+                      <td class="form_2td_content_width">
+                          <select name="org" id="user_id" ng-model="user_id" ng-change="peopleChange(SM01.user_id);">
+                              <option ng-repeat="userC in user_List" value="{{userC.user_id}}">{{userC.user_name}}</option>
+                          </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="form_2td_label_width">電話</td>
+                      <td class="form_2td_content_width"><input disabled="disabled" value="{{selected_user.user_tel}}"></td>
+                      <td class="form_2td_label_width">EMail</td>
+                      <td class="form_2td_content_width"><input disabled="disabled" value="{{selected_user.user_mail}}"></td>
+                  </tr>
+                  <tr>
+                      <td class="form_2td_label_width"><label for="year">軟體編號</label> </td>
+                      <td class="form_2td_content_width">
+                          <input class="form-control" id="soft_id" ng-model="soft_id" disabled="disabled" type="text"> <br>
+                      </td>
+                      <td class="form_2td_label_width"> <label for="year">軟體名稱</label> </td>
+                      <td class="form_2td_content_width">
+                          <input class="form-control" id="soft_name" ng-model="soft_name" type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="form_1td_label_width"> <label for="year">軟體別</label> </td>
+                      <td class="form_1td_content_width" colspan="3">
+                          <select class="form-control" id="soft_type" ng-model="soft_type">
+                              <option value="1">系統軟體</option>
+                              <option value="2">軟體工具</option>
+                              <option value="3">應用軟體</option>
+                          </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">序號</label> </td>
+                      <td colspan="3">
+                          <input class="form-control" id="soft_sn" ng-model="soft_sn"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">軟體功能</label> </td>
+                      <td colspan ="3">
+                          <input class="form-control" id="soft_for" ng-model="soft_for"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="org">使用版別</label> </td>
+                      <td>
+                          <select class="form-control" id="soft_work_on" ng-model="soft_work_on">
+                              <option value="1">主機版</option>
+                              <option value="2">單機版</option>
+                              <option value="3">網路版</option>
+                          </select>
+                          <!--<input type="text" class="form-control" id="soft_work_on" ng-model="soft_work_on" />-->
+                      </td>
+                      <td> <label for="year">使用者數量(網路版)</label> </td>
+                      <td>
+                          <input class="form-control" id="soft_max_user" ng-model="soft_max_user"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+
+                      <td> <label for="year">軟硬體環境</label> </td>
+                      <td colspan="3">
+                          <input class="form-control" id="soft_platform" ng-model="soft_platform"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="org">軟體來源</label> </td>
+                      <td colspan="3">
+                          <select class="form-control" id="soft_from" ng-model="soft_from">
+                              <option value="1">購置</option>
+                              <option value="2">自行開發</option>
+                              <option value="3">委託開發</option>
+                              <option value="4">授權使用</option>
+                              <option value="5">隨硬體附贈</option>
+                              <option value="6">他機關贈與</option>
+                              <option value="7">其它</option>
+                          </select>
+                          <!--<input type="text" class="form-control" id="soft_from" ng-model="soft_from" />-->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">來源單位</label> </td>
+                      <td colspan="3">
+                          <input class="form-control" id="soft_from_unit" ng-model="soft_from_unit"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">軟體存放媒體</label> </td>
+                      <td colspan="3">
+                          <select class="form-control" id="soft_keeper" ng-model="soft_keeper">
+                              <option value="1">光碟片</option>
+                              <option value="2">磁碟片</option>
+                              <option value="3">磁帶</option>
+                              <option value="4">磁碟</option>
+                              <option value="5">其他</option>
+                          </select>
+                          <!--<input type="text" class="form-control" id="soft_keeper" ng-model="soft_keeper" />-->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">相關文件手冊名稱及數量</label> </td>
+                      <td colspan="3">
+                          <input class="form-control" id="soft_doc" ng-model="soft_doc"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">資本門費用</label> </td>
+                      <td>
+                          <input class="form-control" id="soft_number" ng-model="soft_cost"
+                                 type="text">
+                      </td>
+                      <td> <label for="year">數量</label> </td>
+                      <td>
+                          <input class="form-control" id="soft_number" ng-model="soft_number"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="org">安裝日期</label> </td>
+                      <td>
+                          <p class="input-group">
+                              <input readonly="true" class="form-control"
+                                     id="install_date" ng-model="install_date" uib-datepicker-popup="{{format}}"
+                                     is-open="popup1.opened" datepicker-options="dateOptions"
+                                     ng-required="true" close-text="Close" alt-input-formats="altInputFormats"
+                                     type="text"> 
+                              <span class="input-group-btn">
+                                  <button type="button" class="btn btn-default" ng-click="open1()"></button>
+                              </span>
+                          </p>
+                      </td>
+                      <td> <label for="year">安裝地點</label> </td>
+                      <td>
+                          <input class="form-control" id="install_place" ng-model="install_place"
+                                 type="text">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td> <label for="year">備註</label> </td>
+                      <td colspan="3">
+                          <input class="form-control" id="memo" ng-model="memo"
+                                 type="text">
+                      </td>
+                  </tr>
+ 
+                      <tr>
+                          <td> <label for="year">保管單位</label> </td>
+                          <td>
+                              <input class="form-control" id="keep_org" ng-model="keep_org"
+                                     type="text">
+                          </td>
+                          <td> <label for="year">保管人</label> </td>
+                          <td>
+                              <input class="form-control" id="keep_man" ng-model="keep_man"
+                                     type="text">
+                          </td>
+                    </tr>
+                    <tr>
+                      <td> <label for="year">使用單位</label> </td>
+                      <td> <input class="form-control" id="use_org" ng-model="use_org"
+
+                          type="text"> </td>
+                        <td> <label for="year">使用人</label> </td>
+                        <td>
+                            <input class="form-control" id="use_man" ng-model="use_man"
+                                   type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                      <td> <label for="year">版本</label> </td>
+                      <td> <input class="form-control" id="soft_ver" ng-model="soft_ver"
+
+                          type="text"> </td>
+                        <td> <label for="year">授權人數</label> </td>
+                        <td>
+                            <input class="form-control" id="auth_number" ng-model="auth_number"
+                                   type="text">
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <input class="btn btn-primary" value="送出" ng-click="Add()" type="button">
+</div></body></html>

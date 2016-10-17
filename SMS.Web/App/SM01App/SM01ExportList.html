@@ -1,0 +1,37 @@
+﻿
+<h2>報表資料</h2>
+<div style="text-align:right;">
+    <div style="text-align:right;">
+        <a class="btn btn-xs btn-success" href="/SM01List/Export?type=Excel">
+            <i class="fa fa-file-excel-o fa"></i> Excel
+        </a>
+        <a class="btn btn-xs btn-danger" href="/SM01List/Export?type=pdf">
+            <i class="fa fa-file-pdf-o fa"></i> PDF
+        </a>
+        <a class="btn btn-xs btn-info" href="/SM01List/Export?type=word">
+            <i class="fa fa-file-word-o fa"></i> Word
+        </a>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>年度</td>
+            <td>機關</td>
+            <td>部門</td>
+            <td>軟體名稱</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.year</td>
+            <td>@item.org</td>
+            <td>@item.dept</td>
+            <td>@item.soft_name</td>
+        </tr>
+        }
+    </tbody>
+</table>

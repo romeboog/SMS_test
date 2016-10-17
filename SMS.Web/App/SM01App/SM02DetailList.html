@@ -1,0 +1,33 @@
+﻿<table class="table table-bordered">
+    <tr>
+        <th>
+            年度
+        </th>
+        <th>
+            機關
+        </th>
+        <th>
+            軟體編號
+        </th>
+        <th>
+            軟體名稱
+        </th>
+        <th>
+            Memo
+        </th>
+        <th>
+            動作
+        </th>
+    </tr>
+    <tr ng-repeat="SM01 in SM01s">
+        <td>{{SM01.year}}</td>
+        <td>{{SM01.org}}</td>
+        <td>{{SM01.soft_id}}</td>
+        <td>{{SM01.soft_name}}</td>
+        <td>{{SM01.memo}}</td>
+        <td>
+            <input type="button" class="btn-success" value="修改" ng-click="Update(SM01.year,SM01.org,SM01.dept,SM01.soft_id)" />
+            <input type="button" class="btn-danger" value="刪除" ng-click="Delete(SM01)" />
+        </td>
+    </tr>
+</table>

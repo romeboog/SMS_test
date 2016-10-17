@@ -1,0 +1,198 @@
+﻿<div ng-app='MainApp' ng-controller="SM01Ctrl">
+    <h3><i class="fa fa-table"></i>軟體保管單</h3>
+    <hr />
+    <div id="Panel2" class="search_panel2" style="width:681px;">
+
+        <table width="675">
+            <tbody>
+                <tr>
+                    <td class="style2" colspan="2">
+                        <span id="Label4" style="display:inline-block;color:Blue;font-weight:bold;width:223px;">【資料查詢】</span>
+                    </td>
+                    <td>
+                        <span id="Label11" style="display:inline-block;width:60px;">年度</span>
+                    </td>
+                    <td class="style1">
+                        <select name="ddl_year" id="ddl_year" ng-model="filter_p.year">
+                            <option value="-1">全選</option>
+                            <option value="105">105</option>
+                            <option value="105">106</option>
+                            <option value="105">107</option>
+                            <option value="105">108</option>
+                            <option value="105">109</option>
+                            <option value="105">110</option>
+                        </select>
+
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style2">
+                        <span id="Label1">機關</span>
+                    </td>
+                    <td class="style4">
+                        <select name="org" id="DDL_org" ng-model="filter_p.org" ng-change="orgChange(filter_p.year,filter_p.org);">
+                            <option value="-1" selected="selected">全選</option>
+                            <option ng-repeat="orgC in org_List" value="{{orgC.org_id}}">{{orgC.org_name}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <span id="Label6" style="display:inline-block;width:120px;">機關+部門</span>
+                    </td>
+                    <td class="style1">
+                        <select name="dept" id="DDL_dept" ng-model="filter_p.dept">
+                            <option value="-1" selected="selected">全選</option>
+                            <option ng-repeat="deptC in dept_List" value="{{deptC.dept_id}}">{{deptC.dept_name}}</option>
+                        </select>
+                        &nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style2">
+                        <span id="Label2">軟體別</span>
+                    </td>
+                    <td class="style1">
+                        <select name="ddl_soft_type" id="ddl_soft_type" style="width:180px;" ng-model="filter_p.soft_type">
+                            <option selected="selected" value="-1">全部</option>
+                            <option value="1">系統軟體</option>
+                            <option value="2">軟體工具</option>
+                            <option value="3">應用軟體</option>
+
+                        </select>
+                    </td>
+                    <td>
+                        <span id="Label3" style="display:inline-block;width:70px;">承 辦 人</span>
+                    </td>
+                    <td class="style1">
+                        <select name="ddl_user_id" id="ddl_user_id" style="height:20px;width:180px;" ng-model="filter_p.user">
+                            <option selected="selected" value="-1">全部</option>
+                            <option ng-repeat="userC in user_List" value="{{userC.user_id}}">{{userC.user_name}}</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style2">
+                        <span id="Label10" style="display:inline-block;width:100px;">軟體編號</span>
+                    </td>
+                    <td class="style4">
+                        <select name="ddl_soft_id" id="ddl_soft_id" style="height:20px;width:180px;" ng-model="filter_p.soft_id">
+                            <option selected="selected" value="-1">全部</option>
+                            <option ng-repeat="SM01 in SM01s" value="{{SM01.soft_id}}">{{SM01.soft_id}}</option>
+                        </select>
+
+                    </td>
+                    <td>
+                        <span id="Label9" style="display:inline-block;width:100px;">軟體名稱</span>
+                    </td>
+                    <td class="style1">
+                        <input name="txt_soft_name" type="text" id="txt_soft_name" style="width:180px;" ng-model="filter_p.soft_name">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center">
+                        <table id="rbl_soft_from" border="0" style="width:607px;margin-left: 0px">
+                            <tbody>
+                                <tr>
+                                    <td><input id="rbl_soft_from_0" type="radio" name="rbl_soft_from" value="-1" ng-model="filter_p.soft_from" checked="checked" ng-change="UpdateCount();"><label for="rbl_soft_from_0">全部</label></td>
+                                    <td><input id="rbl_soft_from_1" type="radio" name="rbl_soft_from" value="1" ng-model="filter_p.soft_from" ng-change="UpdateCount();"><label for="rbl_soft_from_1">購置</label></td>
+                                    <td><input id="rbl_soft_from_2" type="radio" name="rbl_soft_from" value="2" ng-model="filter_p.soft_from" ng-change="UpdateCount();"><label for="rbl_soft_from_2">自行開發</label></td>
+                                    <td><input id="rbl_soft_from_3" type="radio" name="rbl_soft_from" value="3" ng-model="filter_p.soft_from" ng-change="UpdateCount();"><label for="rbl_soft_from_3">委託開發</label></td>
+                                    <td><input id="rbl_soft_from_4" type="radio" name="rbl_soft_from" value="4" ng-model="filter_p.soft_from" ng-change="UpdateCount();"><label for="rbl_soft_from_4">授權使用</label></td>
+                                    <td><input id="rbl_soft_from_5" type="radio" name="rbl_soft_from" value="5" ng-model="filter_p.soft_from" ng-change="UpdateCount();"><label for="rbl_soft_from_5">其他</label></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style2">
+                        <input type="button" class="btn btn-primary" name="ibtn_query1" id="ibtn_query1" value="查詢" ng-click="applysearch()">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/SM01/Add" class="btn btn-primary">新增</a>
+    <div ng-show="isload" style="text-align:center;">
+        <i class="fa fa-spinner fa-3x" aria-hidden="true"></i> Loading...
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                年度
+            </th>
+            <th>
+                機關編號
+            </th>
+            <th>
+                機關名稱
+            </th>
+            <th>
+                部門編號
+            </th>
+            <th>
+                部門名稱
+            </th>
+            <th>
+                承辦人編號
+            </th>
+            <th>
+                承辦人名稱
+            </th>
+            <th>
+                軟體別
+            </th>
+            <th>
+                軟體編號
+            </th>
+            <th>
+                軟體名稱
+            </th>
+            <th>
+                軟體數量
+            </th>
+            <th>
+                費用
+            </th>
+            <th>
+                動作
+            </th>
+        </tr>
+        <!--<tr ng-repeat="SM01 in SM01s | customFilter : filter as SM01_Filtered">-->
+        <tr ng-repeat="SM01 in SM01_Filtered = (SM01s | customFilter : filter) | limitTo:pageSize:pageSize*(currentPage-1)">
+            <td>{{SM01.year}}</td>
+            <td>{{SM01.org}}</td>
+            <td>{{SM01.org_name}}</td>
+            <td>{{SM01.dept}}</td>
+            <td>{{SM01.dept_name}}</td>
+            <td>{{SM01.user_id}}</td>
+            <td>{{SM01.user_name}}</td>
+            <td>{{SM01.soft_type_name}}</td>
+            <td>{{SM01.soft_id}}</td>
+            <td>{{SM01.soft_name}}</td>
+            <td>{{SM01.soft_number}}</td>
+            <td>{{SM01.soft_cost}}</td>
+            <td>
+                <input type="button" class="btn-success" value="修改" ng-click="Update(SM01.year,SM01.org,SM01.dept,SM01.soft_id)" />
+                <input type="button" class="btn-danger" value="刪除" ng-click="Delete(SM01)" />
+                <input type="button" class="btn-info" value="明細" ng-click="OpenSM02(SM01.year,SM01.org,SM01.dept,SM01.soft_id)" />
+            </td>
+        </tr>
+    </table>
+    <ul uib-pagination 
+        boundary-links="true" 
+        total-items="SM01_Filtered.length" 
+        items-per-page="pageSize" 
+        ng-model="currentPage" 
+        class="pagination-sm" 
+        previous-text="上一頁" 
+        next-text="下一頁" 
+        first-text="第一頁" 
+        last-text="最後一頁"></ul>
+    <pre>Current Page# : {{currentPage}}, Total Record#: {{SM01_Filtered.length}}</pre>
+    <div style="color:red">
+        {{error}}
+    </div>
+</div>

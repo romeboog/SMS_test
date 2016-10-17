@@ -1,0 +1,19 @@
+﻿@*@model IList<SMS.Domain.ViewModels.SM01ViewModel>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<h3><i class="fa fa-table"></i>軟體保管單</h3>
+<hr />*@
+@*<div style="text-align:right;">
+    <a class="btn btn-xs btn-success" href="/SM01/Export?type=Excel">
+        <i class="fa fa-file-excel-o fa"></i> Excel
+    </a>
+    <a class="btn btn-xs btn-danger" href="/SM01/Export?type=pdf">
+        <i class="fa fa-file-pdf-o fa"></i> PDF
+    </a>
+    <a class="btn btn-xs btn-info" href="/SM01/Export?type=word">
+        <i class="fa fa-file-word-o fa"></i> Word
+    </a>
+</div>*@
+<div ng-view></div>

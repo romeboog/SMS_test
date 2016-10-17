@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+{
+    using (Html.BeginForm("Logout", "Login", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("你好 " + FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "管理" })
+        </li>
+      <li>
+          <input type="hidden" value=@Session["UserID"] id="hidden_uid"  />
+      </li>
+        <li><input type="hidden" value=@Session["UserOrg"] id="hidden_org" /></li>
+        <li><input type="hidden" value=@Session["UserDept"] id="hidden_dept" /></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
+    </ul>
+    }
+    
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("登入", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

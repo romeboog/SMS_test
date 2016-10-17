@@ -1,0 +1,98 @@
+﻿<form id="myForm" name="myForm">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <label for="User_Org">機關</label>&nbsp&nbsp
+            <span style="color:red" ng-show="!myForm.User_org.$valid"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>必填</span>
+            <div>
+                <!--ng-model來指定我們的ViewModel欄位-->
+                <select class="form-control" id="User_Org" name="User_org" ng-trim="true" ng-model="user_org" ng-options="orgN.org_id as orgN.org_name  for orgN in user_orgs" ng-change="change(user_org)" ng-required="true">
+                    <option value="">--請選擇--</option>
+                </select>
+            </div>
+            <!--<pre class="ng-binding">myForm.User_org.$valid= {{myForm.User_org.$valid}}</pre>-->
+
+            <br />
+            <label for="User_Dept">部門</label>&nbsp&nbsp
+            <span style="color:red" ng-show="!myForm.User_dept.$valid"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>必填</span>
+            <div name="div_org" >
+                <select class="form-control" id="User_Dept" name="User_dept" ng-trim="true" ng-model="user_dept" ng-options="dept.dept_id as dept.dept_name for dept in user_depts" ng-required="true" required>
+                    <option value="">--請選擇--</option>
+                </select>
+            </div>
+
+
+            <!--<pre class="ng-binding">myForm.User_dept.$valid= {{myForm.User_dept.$valid}}</pre>-->
+
+            <br />
+            <label for="User_Id">使用者編號</label>&nbsp&nbsp
+            <span style="color:red" ng-show="!myForm.User_id.$valid"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>必填</span>
+            <input type="text" class="form-control" id="User_Id" name="User_id" maxlength="15" ng-model="user_id" ng-trim="true" ng-required="true"  required>
+            <!--<pre class="ng-binding">myForm.User_id.$valid= {{myForm.User_id.$valid}}</pre>-->
+
+
+            <label for="User_Name">姓名</label>&nbsp&nbsp
+            <span style="color:red" ng-show="!myForm.User_name.$valid"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>必填</span>
+            <input type="text" class="form-control" id="User_Name" name="User_name" ng-trim="true" ng-model="user_name" maxlength="12" ng-required="true" required>
+            <!--<pre class="ng-binding">myForm.User_name.$valid= {{myForm.User_name.$valid}}</pre>-->
+            <br />
+            <label for="User_Password">密碼</label>&nbsp&nbsp
+            <span style="color:red" ng-show="myForm.User_password.$error.required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>必填</span>
+            <span style="color:red" ng-show="myForm.User_password.$error.pattern"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>密碼格式不正確，長度6碼以上，需含大、小寫字母與數字</span>
+            <input type="password" id="User_Password" name="User_password" class="form-control" maxlength="40" ng-model="user_pwd" ng-trim="true" ng-required="true" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,40}$" placeholder="6碼以上，需含大、小寫字母與數字">
+            <!--<pre class="ng-binding">myForm.User_password.$valid= {{myForm.User_password.$error}}</pre>-->
+
+            <br />
+            <label for="User_Sex">性別</label>
+            <select class="form-control" id="User_Sex" name="User_sex" ng-model="user_sex">
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+
+            <br />
+            <label for="User_Mail">電子信箱</label>&nbsp&nbsp
+            <span style="color:red;" ng-show="myForm.User_mail.$error.email"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>email格式不正確</span>
+            <input type="email" class="form-control" id="User_Mail" name="User_mail" ng-model="user_mail" ng-trim="true" maxlength="60">
+
+            <br />
+            <label for="User_Tel">電話</label>
+            <input type="text" class="form-control" id="User_Tel" name="User_tel" ng-model="user_tel" ng-trim="true" maxlength="20">
+
+            <br />
+            <label for="Auth_Type">權限</label>
+            <select class="form-control" id="Auth_type" name="Auth_type" ng-model="auth_type">
+                <option value="35">一般使用者</option>
+                <option value="65">單位管理者</option>
+                <option value="99">總管理者</option>
+            </select>
+
+            <br />
+            <label for="Usable">該帳號是否停用?</label><br />
+            <label class="radio-inline">
+                <input type="radio" id="Usable1" value="true" ng-model="usable">不停用
+            </label>
+            <label class="radio-inline">
+                <input type="radio" id="Usable2" value="false" ng-model="usable">停用
+            </label>
+
+
+        </div>
+        <br\>
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a class="btn btn-primary" href="#" ng-disabled="myForm.$invalid" ng-click="Add()">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        送出
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="btn btn-primary" href="/BD03">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        取消
+                    </a>
+                </li>
+
+            </ul>
+
+
+    </div>
+</form>

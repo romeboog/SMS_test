@@ -1,0 +1,109 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <label for="year">年度: {{SM01.year}}</label>
+        <!--<input type="text" class="form-control" id="year" ng-model="year" />-->
+        <label for="org">填表單位編號: {{SM01.org}}</label>
+        <!--<input type="text" class="form-control" id="org" ng-model="org" />-->
+        <label for="year">部門編號: {{SM01.dept}}</label>
+        <!--<input type="text" class="form-control" id="dept" ng-model="dept" />-->
+        <label for="year">軟體編號: {{SM01.soft_id}}</label>
+        <!--<input type="text" class="form-control" id="soft_id" ng-model="soft_id" />-->
+        <br />
+        <label for="year">軟體名稱</label>
+        <input type="text" class="form-control" id="soft_name" ng-model="SM01.soft_name" />
+        <label for="org">承辦人編號</label>
+        <input type="text" class="form-control" id="user_id" ng-model="SM01.user_id" />
+        <label for="year">軟體別</label>
+        <select class="form-control" id="soft_type" ng-model="SM01.soft_type">
+            <option value="1">系統軟體</option>
+            <option value="2">軟體工具</option>
+            <option value="3">應用軟體</option>
+        </select> 
+        <!--<input type="text" class="form-control" id="soft_type" ng-model="SM01.soft_type" />-->
+        <label for="year">序號</label>
+        <input type="text" class="form-control" id="soft_sn" ng-model="SM01.soft_sn" />
+        <label for="year">軟體功能</label>
+        <input type="text" class="form-control" id="soft_for" ng-model="SM01.soft_for" />
+        <label for="org">使用版別</label>
+        <select class="form-control" id="soft_work_on" ng-model="SM01.soft_work_on" >
+            <option value="1">主機版</option>
+            <option value="2">單機版</option>
+            <option value="3">網路版</option>
+        </select> 
+        <!--<input type="text" class="form-control" id="soft_work_on" ng-model="SM01.soft_work_on" />-->
+        <label for="year">使用者數量(網路版)</label>
+        <input type="text" class="form-control" id="soft_max_user" ng-model="SM01.soft_max_user" />
+        <label for="year">數量</label>
+        <input type="text" class="form-control" id="soft_number" ng-model="SM01.soft_number" />
+        <label for="year">適用軟硬體環境</label>
+        <input type="text" class="form-control" id="soft_platform" ng-model="SM01.soft_platform" />
+        <label for="org">軟體來源</label>
+        <select class="form-control" id="soft_from" ng-model="SM01.soft_from">
+            <option value="1">購置</option>
+            <option value="2">自行開發</option>
+            <option value="3">委託開發</option>
+            <option value="4">授權使用</option>
+            <option value="5">隨硬體附贈</option>
+            <option value="6">他機關贈與</option>
+            <option value="7">其它</option>
+        </select> 
+        <!--<input type="text" class="form-control" id="soft_from" ng-model="SM01.soft_from" />-->
+        <label for="year">來源單位</label>
+        <input type="text" class="form-control" id="soft_from_unit" ng-model="SM01.soft_from_unit" />
+        <label for="year">軟體存放媒體</label>
+        <select class="form-control" id="soft_keeper" ng-model="SM01.soft_keeper">
+            <option value="1">光碟片</option>
+            <option value="2">磁碟片</option>
+            <option value="3">磁帶</option>
+            <option value="4">磁碟</option>
+            <option value="5">其他</option>
+        </select> 
+        <!--<input type="text" class="form-control" id="soft_keeper" ng-model="SM01.soft_keeper" />-->
+        <label for="year">相關文件手冊名稱及數量</label>
+        <input type="text" class="form-control" id="soft_doc" ng-model="SM01.soft_doc" />
+        <label for="org">安裝日期</label>
+        <input type="datetime" class="form-control" id="install_date" ng-model="SM01.install_date" />
+        <label for="year">安裝地點</label>
+        <input type="text" class="form-control" id="install_place" ng-model="SM01.install_place" />
+        <label for="year">備註</label>
+        <input type="text" class="form-control" id="memo" ng-model="SM01.memo" />
+    </div>
+    <div class="panel-body">
+        <!--<input type="button" class="btn-success" value="新增明細" ng-click="CreateSM02AddWindow(SM01.year,SM01.org,SM01.dept,SM01.soft_id)" />-->
+        <input type="button" class="btn-success" value="新增明細" ng-click="CreateSM02AddWindow(SM01.year,SM01.org,SM01.dept,SM01.soft_id)" />
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    年度
+                </th>
+                <th>
+                    機關
+                </th>
+                <th>
+                    軟體編號
+                </th>
+                <!--<th>
+                    軟體名稱
+                </th>-->
+                <th>
+                    Memo
+                </th>
+                <!--<th>
+                    動作
+                </th>-->
+            </tr>
+            <tr ng-repeat="SM02 in SM02List">
+                <td>{{SM02.year}}</td>
+                <td>{{SM02.org}}</td>
+                <td>{{SM02.soft_id}}</td>
+                <!--<td>{{SM02.soft_name}}</td>-->
+                <td>{{SM02.memo}}</td>
+                <td>
+                    <input type="button" class="btn-success" value="修改" ng-click="Update(SM01.year,SM01.org,SM01.dept,SM01.soft_id)" />
+                    <input type="button" class="btn-danger" value="刪除" ng-click="Delete(SM01)" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="button" class="btn btn-primary" value="送出" ng-click="Update()" />
+</div>

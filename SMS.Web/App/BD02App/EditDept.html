@@ -1,0 +1,60 @@
+﻿
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-show="isload" style="text-align:center;">
+            <i class="fa fa-spinner fa-3x" aria-hidden="true"></i> Loading...
+        </div>
+
+        <label for="User_Org">機關</label>
+        <div>
+            <select class="form-control" id="User_Org" ng-model="User.user_org" ng-options="orgN.org_id as orgN.org_name  for orgN in user_orgs" ng-change="change(User.user_org)">
+                <!--ng-model來指定我們的ViewModel欄位-->
+                <option value="">--請選擇--</option>
+            </select>
+        </div>
+
+        <label for="User_Dept">部門</label>
+
+        <div>
+            <select class="form-control" id="User_Dept" ng-model="User.user_dept" ng-options="dept.dept_id as dept.dept_name for dept in user_depts">
+                <option value="">--請選擇--</option>
+            </select>
+        </div>
+        <label for="User_Id">使用者編號</label>
+        <input type="text" class="form-control" id="User_Id" ng-model="User.user_id">
+        <label for="User_Name">姓名</label>
+        <input type="text" class="form-control" id="User_Name" ng-model="User.user_name">
+        <label for="User_Password">密碼</label>
+        <input type="password" class="form-control" id="User_Password" ng-model="User.user_pwd">
+        <label for="User.User_Sex">性別</label>
+        <select class="form-control" id="User_Sex" ng-model="User.user_sex">
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+        <label for="User_Email">電子信箱</label>
+        <input type="text" class="form-control" id="User_Email" ng-model="User.user_mail">
+        <label for="User_Tel">電話</label>
+        <input type="text" class="form-control" id="User_Tel" ng-model="User.user_tel">
+        <label for="Auth_Type">權限</label>
+
+        <select class="form-control" id="Auth_Type" ng-model="User.auth_type">
+            <option value="35">一般使用者</option>
+            <option value="65">單位管理者</option>
+            <option value="99">總管理者</option>
+        </select>
+
+        <label>該帳號是否停用?</label><br />
+        <label class="radio-inline">
+            <input type="radio" name="usable" id="usable2" value="true" ng-model="User.usable">不停用
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="usable" id="usable1" value="false" ng-model="User.usable">停用
+        </label>
+
+        <input type="text" class="form-control" id="old_org" ng-hide="User.user_org" ng-model="old_user_org">
+        <input type="text" class="form-control" id="old_dept" ng-hide="User.user_dept" ng-model="old_user_dept">
+        <input type="text" class="form-control" id="old_user_id" ng-hide="User.user_id" ng-model="old_user_id">
+    </div>
+    <input type="button" class="btn btn-primary" value="更新" ng-click="Update()" />
+</div>
+

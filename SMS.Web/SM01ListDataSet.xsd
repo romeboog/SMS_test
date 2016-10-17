@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SM01ListDataSet" targetNamespace="http://tempuri.org/SM01ListDataSet.xsd" xmlns:mstns="http://tempuri.org/SM01ListDataSet.xsd" xmlns="http://tempuri.org/SM01ListDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SMSConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select 
+'' as directory_sn,
+'' as soft_id,
+'' as soft_type_name,
+'' as soft_name,
+'' as soft_ver,
+'' as soft_sn,
+'' as soft_max_user, 
+'' as soft_work_on_name, 
+'' as soft_max_user, 
+'' as soft_platform, 
+'' as soft_number, 
+'' as soft_from, 
+'' as soft_from_unit, 
+'' as soft_keeper, 
+'' as soft_doc, 
+'' as soft_cost, 
+'' as keep_org, 
+'' as keep_man, 
+'' as use_org, 
+'' as use_man, 
+'' as install_date, 
+'' as soft_for, 
+'' as memo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="soft_id" DataSetColumn="soft_id" />
+              <Mapping SourceColumn="soft_type_name" DataSetColumn="soft_type_name" />
+              <Mapping SourceColumn="soft_name" DataSetColumn="soft_name" />
+              <Mapping SourceColumn="soft_ver" DataSetColumn="soft_ver" />
+              <Mapping SourceColumn="soft_sn" DataSetColumn="soft_sn" />
+              <Mapping SourceColumn="soft_max_user" DataSetColumn="soft_max_user" />
+              <Mapping SourceColumn="soft_work_on_name" DataSetColumn="soft_work_on_name" />
+              <Mapping SourceColumn="soft_max_user1" DataSetColumn="soft_max_user1" />
+              <Mapping SourceColumn="soft_platform" DataSetColumn="soft_platform" />
+              <Mapping SourceColumn="soft_number" DataSetColumn="soft_number" />
+              <Mapping SourceColumn="soft_from" DataSetColumn="soft_from" />
+              <Mapping SourceColumn="soft_from_unit" DataSetColumn="soft_from_unit" />
+              <Mapping SourceColumn="soft_keeper" DataSetColumn="soft_keeper" />
+              <Mapping SourceColumn="soft_doc" DataSetColumn="soft_doc" />
+              <Mapping SourceColumn="soft_cost" DataSetColumn="soft_cost" />
+              <Mapping SourceColumn="keep_org" DataSetColumn="keep_org" />
+              <Mapping SourceColumn="keep_man" DataSetColumn="keep_man" />
+              <Mapping SourceColumn="use_org" DataSetColumn="use_org" />
+              <Mapping SourceColumn="use_man" DataSetColumn="use_man" />
+              <Mapping SourceColumn="install_date" DataSetColumn="install_date" />
+              <Mapping SourceColumn="soft_for" DataSetColumn="soft_for" />
+              <Mapping SourceColumn="memo" DataSetColumn="memo" />
+              <Mapping SourceColumn="directory_sn" DataSetColumn="directory_sn" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SM01ListDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SM01ListDataSet" msprop:Generator_UserDSName="SM01ListDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="soft_id" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_id" msprop:Generator_ColumnPropNameInRow="soft_id" msprop:Generator_ColumnPropNameInTable="soft_idColumn" msprop:Generator_UserColumnName="soft_id" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_type_name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_type_name" msprop:Generator_ColumnPropNameInRow="soft_type_name" msprop:Generator_ColumnPropNameInTable="soft_type_nameColumn" msprop:Generator_UserColumnName="soft_type_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_name" msprop:Generator_ColumnPropNameInRow="soft_name" msprop:Generator_ColumnPropNameInTable="soft_nameColumn" msprop:Generator_UserColumnName="soft_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_ver" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_ver" msprop:Generator_ColumnPropNameInRow="soft_ver" msprop:Generator_ColumnPropNameInTable="soft_verColumn" msprop:Generator_UserColumnName="soft_ver" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_sn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_sn" msprop:Generator_ColumnPropNameInRow="soft_sn" msprop:Generator_ColumnPropNameInTable="soft_snColumn" msprop:Generator_UserColumnName="soft_sn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_max_user" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_max_user" msprop:Generator_ColumnPropNameInRow="soft_max_user" msprop:Generator_ColumnPropNameInTable="soft_max_userColumn" msprop:Generator_UserColumnName="soft_max_user" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_work_on_name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_work_on_name" msprop:Generator_ColumnPropNameInRow="soft_work_on_name" msprop:Generator_ColumnPropNameInTable="soft_work_on_nameColumn" msprop:Generator_UserColumnName="soft_work_on_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_max_user1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_max_user1" msprop:Generator_ColumnPropNameInRow="soft_max_user1" msprop:Generator_ColumnPropNameInTable="soft_max_user1Column" msprop:Generator_UserColumnName="soft_max_user1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_platform" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_platform" msprop:Generator_ColumnPropNameInRow="soft_platform" msprop:Generator_ColumnPropNameInTable="soft_platformColumn" msprop:Generator_UserColumnName="soft_platform" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_number" msprop:Generator_ColumnPropNameInRow="soft_number" msprop:Generator_ColumnPropNameInTable="soft_numberColumn" msprop:Generator_UserColumnName="soft_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_from" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_from" msprop:Generator_ColumnPropNameInRow="soft_from" msprop:Generator_ColumnPropNameInTable="soft_fromColumn" msprop:Generator_UserColumnName="soft_from" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_from_unit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_from_unit" msprop:Generator_ColumnPropNameInRow="soft_from_unit" msprop:Generator_ColumnPropNameInTable="soft_from_unitColumn" msprop:Generator_UserColumnName="soft_from_unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_keeper" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_keeper" msprop:Generator_ColumnPropNameInRow="soft_keeper" msprop:Generator_ColumnPropNameInTable="soft_keeperColumn" msprop:Generator_UserColumnName="soft_keeper" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_doc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_doc" msprop:Generator_ColumnPropNameInRow="soft_doc" msprop:Generator_ColumnPropNameInTable="soft_docColumn" msprop:Generator_UserColumnName="soft_doc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_cost" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_cost" msprop:Generator_ColumnPropNameInRow="soft_cost" msprop:Generator_ColumnPropNameInTable="soft_costColumn" msprop:Generator_UserColumnName="soft_cost" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="keep_org" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnkeep_org" msprop:Generator_ColumnPropNameInRow="keep_org" msprop:Generator_ColumnPropNameInTable="keep_orgColumn" msprop:Generator_UserColumnName="keep_org" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="keep_man" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnkeep_man" msprop:Generator_ColumnPropNameInRow="keep_man" msprop:Generator_ColumnPropNameInTable="keep_manColumn" msprop:Generator_UserColumnName="keep_man" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="use_org" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnuse_org" msprop:Generator_ColumnPropNameInRow="use_org" msprop:Generator_ColumnPropNameInTable="use_orgColumn" msprop:Generator_UserColumnName="use_org" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="use_man" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnuse_man" msprop:Generator_ColumnPropNameInRow="use_man" msprop:Generator_ColumnPropNameInTable="use_manColumn" msprop:Generator_UserColumnName="use_man" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="install_date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columninstall_date" msprop:Generator_ColumnPropNameInRow="install_date" msprop:Generator_ColumnPropNameInTable="install_dateColumn" msprop:Generator_UserColumnName="install_date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="soft_for" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsoft_for" msprop:Generator_ColumnPropNameInRow="soft_for" msprop:Generator_ColumnPropNameInTable="soft_forColumn" msprop:Generator_UserColumnName="soft_for" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="memo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmemo" msprop:Generator_ColumnPropNameInRow="memo" msprop:Generator_ColumnPropNameInTable="memoColumn" msprop:Generator_UserColumnName="memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="directory_sn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndirectory_sn" msprop:Generator_ColumnPropNameInRow="directory_sn" msprop:Generator_ColumnPropNameInTable="directory_snColumn" msprop:Generator_UserColumnName="directory_sn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

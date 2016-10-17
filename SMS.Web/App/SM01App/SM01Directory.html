@@ -1,0 +1,64 @@
+﻿<h3><i class="fa fa-table"></i> 報表資料</h3>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table style="width: 950px;" id="main_form">
+                <tbody>
+                    <!--<input type="text" class="form-control" id="year" ng-model="SM01.year" />-->
+                    <tr>
+                        <td > <label for="year">年度</label></td>
+                        <td >
+                            <select class="form-control" id="DDL_Year" ng-model="SM01.year">
+                                <option value="098">98</option>
+                                <option value="099">99</option>
+                                <option value="100">100</option>
+                                <option value="101">101</option>
+                                <option value="102">102</option>
+                                <option value="103">103</option>
+                                <option value="104">104</option>
+                                <option value="105">105</option>
+                                <option value="106">106</option>
+                                <option value="107">107</option>
+                                <option value="108">108</option>
+                                <option value="109">109</option>
+                            </select>
+                        </td>
+                        <td > <label for="org">填表單位</label> </td>
+                        <td >
+                            <!--<input type="text" class="form-control" id="org" ng-model="SM01.org" />-->
+                            <select name="org" id="DDL_org" ng-model="SM01.org" ng-change="orgChange(SM01.year,SM01.org);">
+                                <option ng-repeat="orgC in org_List" value="{{orgC.org_id}}">{{orgC.org_name}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="year">部門</label>
+                        </td>
+                        <td >
+                            <select name="dept" id="DDL_dept" ng-model="SM01.dept" ng-change="deptChange(SM01.year, SM01.org, SM01.dept)">
+                                <option ng-repeat="deptC in dept_List" value="{{deptC.dept_id}}">{{deptC.dept_name}}</option>
+                            </select>
+                        </td>
+                        <td>匯出格式</td>
+                        <td>
+                            <a class="btn btn-xs btn-success" ng-click="export('Excel',SM01.year, SM01.org, SM01.dept)">
+                                <i class="fa fa-file-excel-o fa"></i> Excel
+                            </a>
+                            <a class="btn btn-xs btn-danger" ng-click="export('pdf',SM01.year, SM01.org, SM01.dept)">
+                                <i class="fa fa-file-pdf-o fa"></i> PDF
+                            </a>
+                            <a class="btn btn-xs btn-info" ng-click="export('word',SM01.year, SM01.org, SM01.dept)">
+                                <i class="fa fa-file-word-o fa"></i> Word
+                            </a>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        <div style="text-align:right;">
+            <div style="text-align:right;">
+
+            </div>
+        </div>
